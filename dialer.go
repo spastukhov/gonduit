@@ -1,9 +1,9 @@
 package gonduit
 
 import (
-	"github.com/etcinit/gonduit/core"
-	"github.com/etcinit/gonduit/responses"
-	"github.com/etcinit/gonduit/util"
+	"github.com/uber/gonduit/core"
+	"github.com/uber/gonduit/responses"
+	"github.com/uber/gonduit/util"
 )
 
 // A Dialer contains options for connecting to an address.

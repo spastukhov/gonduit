@@ -7,9 +7,9 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/etcinit/gonduit/requests"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
+	"github.com/uber/gonduit/requests"
 )
 
 func TestMakeRequest(t *testing.T) {

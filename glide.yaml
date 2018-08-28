@@ -1,4 +1,4 @@
-package: github.com/etcinit/gonduit
+package: github.com/uber/gonduit
 import:
 - package: github.com/karlseguin/typed
   version: ^1.1.7
