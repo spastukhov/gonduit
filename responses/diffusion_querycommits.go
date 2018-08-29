@@ -1,6 +1,6 @@
 package responses
 
-import "github.com/etcinit/gonduit/entities"
+import "github.com/uber/gonduit/entities"
 
 // DiffusionQueryCommitsResponse represents a response of the
 // diffusion.querycommits call.

@@ -1,8 +1,8 @@
 package gonduit
 
 import (
-	"github.com/etcinit/gonduit/requests"
-	"github.com/etcinit/gonduit/responses"
+	"github.com/uber/gonduit/requests"
+	"github.com/uber/gonduit/responses"
 )
 
 // DiffusionQueryCommits performs a call to diffusion.querycommits.

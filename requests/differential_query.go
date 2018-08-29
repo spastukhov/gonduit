@@ -1,6 +1,6 @@
 package requests
 
-import "github.com/etcinit/gonduit/constants"
+import "github.com/uber/gonduit/constants"
 
 // DifferentialQueryRequest represents a request to the
 // differential.query call.

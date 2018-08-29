@@ -1,6 +1,6 @@
 package requests
 
-import "github.com/etcinit/gonduit/constants"
+import "github.com/uber/gonduit/constants"
 
 // ManiphestQueryRequest represents a request to maniphest.query.
 type ManiphestQueryRequest struct {
