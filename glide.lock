@@ -1,33 +1,38 @@
-hash: 2c51c794ef46b9f0eb99094b90e356cac92f9b6e9867b0e1fbb142f98f9e2f29
-updated: 2016-09-12T13:11:09.183342812-07:00
+hash: ed36273d75a185573c405ed48b5c51849d5669f047c7ee34326948169c328d76
+updated: 2018-08-28T18:27:57.420671782+03:00
 imports:
+- name: github.com/gin-contrib/sse
+  version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
 - name: github.com/gin-gonic/gin
-  version: e2fa89777e344782ef5d31929f095f4589c35dcc
+  version: b869fe1415e4b9eb52f247441830d502aece2d4d
   subpackages:
   - binding
+  - json
   - render
-- name: github.com/julienschmidt/httprouter
-  version: b428fda53bb0a764fea9c76c9413512eda291dec
+- name: github.com/golang/protobuf
+  version: b27b920f9e71b439b873b17bf99f56467623814a
+  subpackages:
+  - proto
+- name: github.com/json-iterator/go
+  version: 1624edc4454b8682399def8740d46db5e4362ba4
 - name: github.com/karlseguin/typed
   version: 8485ce47e80a176de6b192c76d06281cebdb9ff2
-- name: github.com/mattn/go-colorable
-  version: ed8eb9e318d7a84ce5915b495b7d35e0cfe7b5a8
 - name: github.com/mattn/go-isatty
-  version: 66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8
+  version: 0360b2af4f38e8d38c7fce2a9f4e702702d73a39
+- name: github.com/modern-go/concurrent
+  version: bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94
+- name: github.com/modern-go/reflect2
+  version: 94122c33edd36123c84d5368cfb2b69df93a0ec8
+- name: github.com/ugorji/go
+  version: 00b869d2f4a5e27445c2d916fa106fc72c106d4c
+  subpackages:
+  - codec
 - name: golang.org/x/sys
   version: 30de6d19a3bd89a5f38ae4028e23aaa5582648af
   subpackages:
   - unix
-testImports:
-- name: github.com/davecgh/go-spew
-  version: 6d212800a42e8ab5c146b8ace3490ee17e5225f9
-  subpackages:
-  - spew
-- name: github.com/pmezard/go-difflib
-  version: 792786c7400a136282c1664665ae0a8db921c6c2
-  subpackages:
-  - difflib
-- name: github.com/stretchr/testify
-  version: f390dcf405f7b83c997eac1b06768bb9f44dec18
-  subpackages:
-  - assert
+- name: gopkg.in/go-playground/validator.v8
+  version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
+- name: gopkg.in/yaml.v2
+  version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
+devImports: []
