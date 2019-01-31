@@ -1,7 +1,9 @@
 package core
 
 import (
+	"net/http"
 	"net/http/httptest"
+	"strconv"
 	"testing"
 
 	"github.com/gin-gonic/gin"
@@ -72,6 +74,34 @@ func TestPerformCall_withEmptyArray(t *testing.T) {
 }
 
 func TestPerformCall_withErrorCode(t *testing.T) {
+	gin.SetMode(gin.TestMode)
+	r := gin.New()
+	r.POST("/api/conduit.getcapabilities", func(c *gin.Context) {
+		c.Writer.WriteHeader(http.StatusUnauthorized)
+		c.Writer.Write([]byte("<html>this is definitely not a json!</html>"))
+		return
+	})
+
+	ts := httptest.NewServer(r)
+	defer ts.Close()
+
+	result := map[string]interface{}{}
+
+	err := PerformCall(
+		ts.URL+"/api/conduit.getcapabilities",
+		map[string]interface{}{},
+		&result,
+		&ClientOptions{},
+	)
+
+	code := strconv.Itoa(http.StatusUnauthorized)
+	assert.Equal(t, &ConduitError{
+		code: code,
+		info: "<html>this is definitely not a json!</html>",
+	}, err)
+}
+
+func TestPerformCall_withBadHTTPResponseCode(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 	r := gin.New()
 	r.POST("/api/conduit.getcapabilities", func(c *gin.Context) {

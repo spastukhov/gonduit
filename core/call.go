@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"strconv"
 	"strings"
 
 	"github.com/karlseguin/typed"
@@ -45,7 +46,10 @@ func PerformCall(
 
 	jsonBody, err := typed.Json(body)
 	if err != nil {
-		return err
+		return &ConduitError{
+			code: strconv.Itoa(resp.StatusCode),
+			info: string(body),
+		}
 	}
 
 	// parse any error conduit returned first
