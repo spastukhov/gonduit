@@ -43,3 +43,16 @@ func (c *Conn) ManiphestGetTaskTransactions(
 
 	return &res, nil
 }
+
+// ManiphestSearch performs a call to maniphest.search.
+func (c *Conn) ManiphestSearch(
+	req requests.ManiphestSearchRequest,
+) (*requests.ManiphestSearchResponse, error) {
+	var res requests.ManiphestSearchResponse
+
+	if err := c.Call("maniphest.search", &req, &res); err != nil {
+		return nil, err
+	}
+
+	return &res, nil
+}
