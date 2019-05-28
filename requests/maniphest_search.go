@@ -2,7 +2,7 @@ package requests
 
 import (
 	"encoding/json"
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/uber/gonduit/entities"
 )
 
