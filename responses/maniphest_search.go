@@ -9,7 +9,7 @@ import (
 // ManiphestSearchResponse contains fields that are in server response to maniphest.search.
 type ManiphestSearchResponse struct {
 	// Data contains search results.
-	Data []*SearchResponseItem `json:"data"`
+	Data []*ManiphestSearchResponseItem `json:"data"`
 	// Curson contains paging data.
 	Cursor entities.Cursor `json:"cursor,omitempty"`
 }
@@ -18,7 +18,7 @@ type ManiphestSearchResponse struct {
 type ManiphestSearchAttachmentColumnBoardsColumn struct {
 	// ID is column identifier.
 	ID int `json:"id"`
-	// Phid is column PHID.
+	// PHID is column PHID.
 	Phid string `json:"phid"`
 	// Name is column name.
 	Name string `json:"name"`
@@ -56,14 +56,14 @@ type TaskDescription struct {
 	Raw string `json:"raw"`
 }
 
-// SearchResponseItem contains information about a particular search result.
-type SearchResponseItem struct {
+// ManiphestSearchResponseItem contains information about a particular search result.
+type ManiphestSearchResponseItem struct {
 	// ID is task identifier.
 	ID int `json:"id"`
 	// Type is task type.
 	Type string `json:"type"`
-	// Phid is PHID of the task.
-	Phid string `json:"phid"`
+	// PHID is PHID of the task.
+	PHID string `json:"phid"`
 	// Fields contains task data.
 	Fields struct {
 		// Name is task name.
@@ -75,9 +75,9 @@ type SearchResponseItem struct {
 		// OwnerPHID is PHID of the person who currently assigned to task.
 		OwnerPHID string `json:"ownerPHID"`
 		// Status is task status.
-		Status SearchResultStatus `json:"status"`
+		Status ManiphestSearchResultStatus `json:"status"`
 		// Priority is task priority.
-		Priority SearchResultPriority `json:"priority"`
+		Priority ManiphestSearchResultPriority `json:"priority"`
 		// Points is point value of the task.
 		Points interface{} `json:"points"`
 		// Subtype of the task.
@@ -120,8 +120,8 @@ type SearchResponseItem struct {
 	} `json:"attachments"`
 }
 
-// SearchResultStatus represents a maniphest status as returned by maniphest.search.
-type SearchResultStatus struct {
+// ManiphestSearchResultStatus represents a maniphest status as returned by maniphest.search.
+type ManiphestSearchResultStatus struct {
 	// Value is status value.
 	Value string `json:"value"`
 	// Name is status name.
@@ -130,8 +130,8 @@ type SearchResultStatus struct {
 	Color string `json:"color"`
 }
 
-// SearchResultPriority represents a priority for a maniphest item in a search result.
-type SearchResultPriority struct {
+// ManiphestSearchResultPriority represents a priority for a maniphest item in a search result.
+type ManiphestSearchResultPriority struct {
 	// Value is priority value.
 	Value int `json:"value"`
 	// Subpriority is task subpriority value.
@@ -152,8 +152,8 @@ type SearchResultPolicy struct {
 	Edit string `json:"edit"`
 }
 
-// SearchResultColumn represents what workboard columns an item may be a member of.
-type SearchResultColumn struct {
+// ManiphestSearchResultColumn represents what workboard columns an item may be a member of.
+type ManiphestSearchResultColumn struct {
 	// ID is column ID.
 	ID int
 	// PHID is column PHID.
