@@ -79,7 +79,7 @@ type ManiphestSearchResponseItem struct {
 		// Priority is task priority.
 		Priority ManiphestSearchResultPriority `json:"priority"`
 		// Points is point value of the task.
-		Points interface{} `json:"points"`
+		Points json.Number `json:"points"`
 		// Subtype of the task.
 		Subtype string `json:"subtype"`
 		// CloserPHID is user who closed the task, if the task is closed.
