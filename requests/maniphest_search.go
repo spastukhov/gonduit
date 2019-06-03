@@ -85,9 +85,9 @@ type ManiphestSearchConstraints struct {
 	// Column PHIDs ??? - no doc on phab site.
 	ColumnPHIDs []string `json:"columnPHIDs,omitempty"`
 	// OpenParents - search for tasks that have parents in open state.
-	OpenParents bool `json:"hasParents,omitempty"`
+	OpenParents *bool `json:"hasParents,omitempty"`
 	// OpenSubtasks - search for tasks that have child tasks in open state.
-	OpenSubtasks bool `json:"hasSubtasks,omitempty"`
+	OpenSubtasks *bool `json:"hasSubtasks,omitempty"`
 	// ParentIDs - search for children of these parents.
 	ParentIDs []int `json:"parentIDs,omitempty"`
 	// SubtaskIDs - Search for tasks that have these children.
