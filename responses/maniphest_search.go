@@ -3,7 +3,7 @@ package responses
 import (
 	"encoding/json"
 	"errors"
-	"github.com/uber/gonduit/entities"
+	"github.com/uber/gonduit/util"
 )
 
 // ManiphestSearchResponse contains fields that are in server response to maniphest.search.
@@ -11,7 +11,11 @@ type ManiphestSearchResponse struct {
 	// Data contains search results.
 	Data []*ManiphestSearchResponseItem `json:"data"`
 	// Curson contains paging data.
-	Cursor entities.Cursor `json:"cursor,omitempty"`
+	Cursor struct {
+		Limit  uint64 `json:"limit"`
+		After  string `json:"after"`
+		Before string `json:"before"`
+	} `json:"cursor,omitempty"`
 }
 
 // ManiphestSearchAttachmentColumnBoardsColumn descrbied a column in "columns" attachment.
@@ -19,7 +23,7 @@ type ManiphestSearchAttachmentColumnBoardsColumn struct {
 	// ID is column identifier.
 	ID int `json:"id"`
 	// PHID is column PHID.
-	Phid string `json:"phid"`
+	PHID string `json:"phid"`
 	// Name is column name.
 	Name string `json:"name"`
 }
@@ -87,9 +91,9 @@ type ManiphestSearchResponseItem struct {
 		// SpacePHID is PHID of the policy space this object is part of.
 		SpacePHID string `json:"spacePHID"`
 		// Date created is epoch timestamp when the object was created.
-		DateCreated int `json:"dateCreated"`
+		DateCreated util.UnixTimestamp `json:"dateCreated"`
 		// DateModified is epoch timestamp when the object was last updated.
-		DateModified int `json:"dateModified"`
+		DateModified util.UnixTimestamp `json:"dateModified"`
 		// Policy is map of capabilities to current policies.
 		Policy SearchResultPolicy `json:"policy"`
 		// CustomTaskType is custom task type.
